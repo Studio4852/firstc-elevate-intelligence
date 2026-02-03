@@ -2,95 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core palette - Purple, Yellow, White */
+    --background: 0 0% 98%;
+    --foreground: 260 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 260 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 260 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Purple */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light Purple */
+    --secondary: 262 60% 95%;
+    --secondary-foreground: 262 83% 40%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft gray */
+    --muted: 260 10% 95%;
+    --muted-foreground: 260 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Golden Yellow */
+    --accent: 45 93% 58%;
+    --accent-foreground: 45 100% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 100% 15%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Risk levels */
+    --risk-high: 0 84% 60%;
+    --risk-medium: 38 92% 50%;
+    --risk-low: 142 76% 36%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* UI */
+    --border: 260 15% 90%;
+    --input: 260 15% 90%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Chart colors */
+    --chart-primary: 262 83% 58%;
+    --chart-secondary: 45 93% 58%;
+    --chart-tertiary: 262 60% 75%;
+    --chart-inflow: 262 83% 58%;
+    --chart-outflow: 0 84% 60%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 262 83% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 45 93% 58%;
+    --sidebar-primary-foreground: 262 83% 12%;
+    --sidebar-accent: 262 60% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 262 60% 20%;
+    --sidebar-ring: 45 93% 58%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(280 83% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 93% 58%), hsl(38 93% 55%));
+    --gradient-card: linear-gradient(180deg, hsl(262 83% 15%), hsl(262 83% 8%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(262 83% 58% / 0.15), transparent 70%);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(260 20% 15% / 0.04);
+    --shadow-md: 0 4px 12px hsl(260 20% 15% / 0.08);
+    --shadow-lg: 0 12px 32px hsl(260 20% 15% / 0.12);
+    --shadow-glow: 0 0 24px hsl(262 83% 58% / 0.25);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 262 83% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 262 60% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 262 60% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 262 40% 18%;
+    --secondary-foreground: 262 60% 80%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 262 30% 15%;
+    --muted-foreground: 260 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 93% 58%;
+    --accent-foreground: 45 100% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 262 30% 18%;
+    --input: 262 30% 18%;
+    --ring: 262 83% 65%;
+
+    --sidebar-background: 262 83% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 45 93% 58%;
+    --sidebar-primary-foreground: 262 83% 8%;
+    --sidebar-accent: 262 60% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 262 30% 15%;
+    --sidebar-ring: 45 93% 58%;
   }
 }
 
@@ -99,7 +128,116 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Status badges */
+  .badge-risk-high {
+    @apply bg-destructive/10 text-destructive border border-destructive/20 font-semibold;
+  }
+
+  .badge-risk-medium {
+    @apply bg-warning/10 text-warning border border-warning/20 font-semibold;
+  }
+
+  .badge-risk-low {
+    @apply bg-success/10 text-success border border-success/20 font-semibold;
+  }
+
+  /* Metric cards */
+  .metric-card {
+    @apply bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .metric-card:hover {
+    @apply border-primary/20;
+  }
+
+  /* AI card gradient */
+  .ai-card {
+    background: var(--gradient-card);
+    @apply rounded-2xl p-6 text-white;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Live indicator pulse */
+  .pulse-live {
+    @apply relative;
+  }
+
+  .pulse-live::before {
+    content: '';
+    @apply absolute w-2 h-2 bg-success rounded-full animate-ping;
+  }
+
+  .pulse-live::after {
+    content: '';
+    @apply absolute w-2 h-2 bg-success rounded-full;
+  }
+
+  /* Health score bar */
+  .health-bar {
+    @apply h-1.5 rounded-full bg-muted overflow-hidden;
+  }
+
+  .health-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-all duration-200;
+  }
+
+  .nav-item.active {
+    @apply bg-sidebar-primary text-sidebar-primary-foreground font-medium;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
