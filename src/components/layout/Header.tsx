@@ -1,4 +1,4 @@
-import { Search, ChevronDown, Bell, LogOut } from "lucide-react";
+import { Search, ChevronDown, Bell } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,11 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { useRole, UserRole } from "@/context/RoleContext";
-import { useAuth } from "@/context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useRole } from "@/context/RoleContext";
 
 interface HeaderProps {
   title: string;
@@ -19,13 +16,6 @@ interface HeaderProps {
 
 export function Header({ title, subtitle }: HeaderProps) {
   const { role, setRole } = useRole();
-  const { logout, username } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
 
   return (
     <header className="flex items-center justify-between mb-8">
@@ -72,11 +62,6 @@ export function Header({ title, subtitle }: HeaderProps) {
             <DropdownMenuItem onClick={() => setRole("MANAGER")}>MANAGER</DropdownMenuItem>
             <DropdownMenuItem onClick={() => setRole("AGENT")}>AGENT</DropdownMenuItem>
             <DropdownMenuItem onClick={() => setRole("ANALYST")}>ANALYST</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout} className="text-destructive">
-              <LogOut className="w-4 h-4 mr-2" />
-              Logout
-            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
