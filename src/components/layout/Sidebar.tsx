@@ -15,19 +15,21 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useRole } from "@/context/RoleContext";
 
-const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
-  { name: "AI Command Center", href: "/ai-command", icon: Zap },
-  { name: "Portfolio Intelligence", href: "/portfolio", icon: TrendingUp },
-  { name: "SME Accounts", href: "/accounts", icon: Building2 },
-  { name: "Micro Business Loans", href: "/micro-loans", icon: Wallet },
-  { name: "Governance & Compliance", href: "/governance", icon: ShieldCheck },
+const allNavigation = [
+  { name: "Dashboard", href: "/", icon: LayoutDashboard, roles: ["MANAGER", "AGENT", "ANALYST"] },
+  { name: "AI Command Center", href: "/ai-command", icon: Zap, roles: ["MANAGER"] },
+  { name: "Portfolio Intelligence", href: "/portfolio", icon: TrendingUp, roles: ["MANAGER", "ANALYST"] },
+  { name: "SME Accounts", href: "/accounts", icon: Building2, roles: ["MANAGER", "AGENT"] },
+  { name: "Micro Business Loans", href: "/micro-loans", icon: Wallet, roles: ["MANAGER"] },
+  { name: "Governance & Compliance", href: "/governance", icon: ShieldCheck, roles: ["MANAGER", "ANALYST"] },
 ];
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const { role } = useRole();
+
+  const navigation = allNavigation.filter(item => item.roles.includes(role));
 
   return (
     <aside 

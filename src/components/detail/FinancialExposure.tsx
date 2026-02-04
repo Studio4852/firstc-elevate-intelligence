@@ -26,9 +26,9 @@ export function FinancialExposure({ totalArrears, totalExposure, facilities }: F
         <p className="text-xs text-muted-foreground uppercase tracking-wide">Total Arrears</p>
         <div className="flex items-baseline gap-3">
           <span className="font-display text-4xl font-bold text-destructive">
-            ${(totalArrears / 1000).toFixed(1)}K
+            ₦{(totalArrears / 1000000).toFixed(1)}M
           </span>
-          <span className="text-muted-foreground">/ ${(totalExposure / 1000).toFixed(0)}K</span>
+          <span className="text-muted-foreground">/ ₦{(totalExposure / 1000000).toFixed(0)}M</span>
         </div>
       </div>
 
@@ -49,8 +49,8 @@ export function FinancialExposure({ totalArrears, totalExposure, facilities }: F
               <p className="text-xs text-muted-foreground">{facility.dpd} DPD</p>
             </div>
             <div className="text-right">
-              <p className="font-semibold text-foreground">${(facility.amount / 1000).toFixed(0)}K</p>
-              <p className="text-sm font-medium text-destructive">-${(Math.abs(facility.arrears) / 1000).toFixed(1)}K</p>
+              <p className="font-semibold text-foreground">₦{(facility.amount / 1000000).toFixed(1)}M</p>
+              <p className="text-sm font-medium text-destructive">-₦{(Math.abs(facility.arrears) / 1000000).toFixed(2)}M</p>
             </div>
           </div>
         ))}

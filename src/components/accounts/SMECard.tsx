@@ -54,11 +54,11 @@ export function SMECard({ id, name, sector, exposure, arrears, healthScore, risk
       <div className="mt-6 space-y-3">
         <div className="flex justify-between items-center">
           <span className="text-xs text-muted-foreground uppercase tracking-wide">Exposure</span>
-          <span className="font-semibold text-foreground">${(exposure / 1000).toFixed(0)}K</span>
+          <span className="font-semibold text-foreground">₦{(exposure / 1000000).toFixed(1)}M</span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-xs text-muted-foreground uppercase tracking-wide">In Arrears</span>
-          <span className="font-semibold text-destructive">${(arrears / 1000).toFixed(1)}K</span>
+          <span className="font-semibold text-destructive">₦{(arrears / 1000000).toFixed(2)}M</span>
         </div>
       </div>
 

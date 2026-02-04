@@ -15,7 +15,7 @@ export default function Portfolio() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="font-display text-xl font-semibold text-foreground">Portfolio Intelligence</h2>
-          <p className="text-muted-foreground text-sm">Segmented risk analysis and recovery performance across the SME portfolio.</p>
+          <p className="text-muted-foreground text-sm">Segmented risk analysis and recovery performance across ₦68.5B SME portfolio.</p>
         </div>
         <div className="flex gap-3">
           <Button variant="outline">

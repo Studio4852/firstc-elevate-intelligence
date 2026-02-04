@@ -8,9 +8,9 @@ const microAccounts = [
   {
     id: "micro-001",
     name: "Quick Bites Catering",
-    loanAmount: 25000,
-    outstanding: 18500,
-    monthlyPayment: 850,
+    loanAmount: 4000000,
+    outstanding: 2960000,
+    monthlyPayment: 136000,
     status: "current",
     daysOverdue: 0,
     sector: "Food & Beverage",
@@ -19,9 +19,9 @@ const microAccounts = [
   {
     id: "micro-002",
     name: "Urban Print Shop",
-    loanAmount: 15000,
-    outstanding: 12200,
-    monthlyPayment: 520,
+    loanAmount: 2400000,
+    outstanding: 1952000,
+    monthlyPayment: 83200,
     status: "attention",
     daysOverdue: 15,
     sector: "Retail",
@@ -30,9 +30,9 @@ const microAccounts = [
   {
     id: "micro-003",
     name: "Green Thumb Gardens",
-    loanAmount: 30000,
-    outstanding: 24000,
-    monthlyPayment: 980,
+    loanAmount: 4800000,
+    outstanding: 3840000,
+    monthlyPayment: 156800,
     status: "current",
     daysOverdue: 0,
     sector: "Agriculture",
@@ -41,9 +41,9 @@ const microAccounts = [
   {
     id: "micro-004",
     name: "Mobile Repairs Hub",
-    loanAmount: 12000,
-    outstanding: 8500,
-    monthlyPayment: 420,
+    loanAmount: 1920000,
+    outstanding: 1360000,
+    monthlyPayment: 67200,
     status: "delinquent",
     daysOverdue: 45,
     sector: "Technology",
@@ -52,9 +52,9 @@ const microAccounts = [
   {
     id: "micro-005",
     name: "Style Studio Salon",
-    loanAmount: 20000,
-    outstanding: 16800,
-    monthlyPayment: 680,
+    loanAmount: 3200000,
+    outstanding: 2688000,
+    monthlyPayment: 108800,
     status: "current",
     daysOverdue: 0,
     sector: "Services",
@@ -63,9 +63,9 @@ const microAccounts = [
   {
     id: "micro-006",
     name: "Corner Grocery Plus",
-    loanAmount: 18000,
-    outstanding: 14200,
-    monthlyPayment: 620,
+    loanAmount: 2880000,
+    outstanding: 2272000,
+    monthlyPayment: 99200,
     status: "attention",
     daysOverdue: 8,
     sector: "Retail",
@@ -98,7 +98,7 @@ export default function MicroLoans() {
     <MainLayout>
       <Header
         title="Micro Business Loans"
-        subtitle="Monitor and manage micro-enterprise loan portfolios under £50,000."
+        subtitle="Monitor and manage micro-enterprise loan portfolios under ₦80M."
       />
 
       {/* Portfolio Metrics */}
@@ -109,7 +109,7 @@ export default function MicroLoans() {
               <Wallet className="w-5 h-5 text-primary" />
             </div>
           </div>
-          <p className="text-2xl font-display font-bold text-foreground">£{(totalPortfolio / 1000).toFixed(0)}K</p>
+          <p className="text-2xl font-display font-bold text-foreground">₦{(totalPortfolio / 1000000).toFixed(1)}M</p>
           <p className="text-sm text-muted-foreground">Total Portfolio</p>
         </div>
         <div className="metric-card">
@@ -127,7 +127,7 @@ export default function MicroLoans() {
               <AlertCircle className="w-5 h-5 text-destructive" />
             </div>
           </div>
-          <p className="text-2xl font-display font-bold text-foreground">£{(atRiskAmount / 1000).toFixed(0)}K</p>
+          <p className="text-2xl font-display font-bold text-foreground">₦{(atRiskAmount / 1000000).toFixed(1)}M</p>
           <p className="text-sm text-muted-foreground">At Risk Amount</p>
         </div>
         <div className="metric-card">
@@ -179,19 +179,19 @@ export default function MicroLoans() {
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Loan Amount</p>
                   <p className="font-semibold text-foreground">
-                    £{account.loanAmount.toLocaleString()}
+                    ₦{(account.loanAmount / 1000000).toFixed(1)}M
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Outstanding</p>
                   <p className="font-semibold text-foreground">
-                    £{account.outstanding.toLocaleString()}
+                    ₦{(account.outstanding / 1000000).toFixed(2)}M
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Monthly Payment</p>
                   <p className="font-semibold text-foreground">
-                    £{account.monthlyPayment.toLocaleString()}
+                    ₦{account.monthlyPayment.toLocaleString()}
                   </p>
                 </div>
                 <div>
