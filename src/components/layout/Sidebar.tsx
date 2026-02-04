@@ -7,21 +7,25 @@ import {
   ShieldCheck, 
   ChevronLeft,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  Wallet
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useRole } from "@/context/RoleContext";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Portfolio Intelligence", href: "/portfolio", icon: TrendingUp },
   { name: "SME Accounts", href: "/accounts", icon: Building2 },
+  { name: "Micro Business Loans", href: "/micro-loans", icon: Wallet },
   { name: "Governance & Compliance", href: "/governance", icon: ShieldCheck },
 ];
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const { role } = useRole();
 
   return (
     <aside 
@@ -85,7 +89,7 @@ export function Sidebar() {
           {!collapsed && (
             <div className="animate-fade-in flex-1 min-w-0">
               <p className="text-sm font-medium text-sidebar-foreground truncate">John Doe</p>
-              <p className="text-xs text-sidebar-primary font-medium">MANAGER MODE</p>
+              <p className="text-xs text-sidebar-primary font-medium">{role} MODE</p>
             </div>
           )}
         </div>

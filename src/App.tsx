@@ -8,27 +8,33 @@ import Accounts from "./pages/Accounts";
 import AccountDetail from "./pages/AccountDetail";
 import Portfolio from "./pages/Portfolio";
 import Governance from "./pages/Governance";
+import MicroLoans from "./pages/MicroLoans";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import { RoleProvider } from "./context/RoleContext";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/accounts" element={<Accounts />} />
-          <Route path="/accounts/:id" element={<AccountDetail />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/governance" element={<Governance />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <RoleProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/accounts/:id" element={<AccountDetail />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/micro-loans" element={<MicroLoans />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </RoleProvider>
   </QueryClientProvider>
 );
 
