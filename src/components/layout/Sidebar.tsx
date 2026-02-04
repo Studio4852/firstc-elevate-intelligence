@@ -8,7 +8,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Wallet
+  Wallet,
+  Zap
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -16,6 +17,7 @@ import { useRole } from "@/context/RoleContext";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "AI Command Center", href: "/ai-command", icon: Zap },
   { name: "Portfolio Intelligence", href: "/portfolio", icon: TrendingUp },
   { name: "SME Accounts", href: "/accounts", icon: Building2 },
   { name: "Micro Business Loans", href: "/micro-loans", icon: Wallet },

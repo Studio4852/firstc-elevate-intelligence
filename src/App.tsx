@@ -9,6 +9,7 @@ import AccountDetail from "./pages/AccountDetail";
 import Portfolio from "./pages/Portfolio";
 import Governance from "./pages/Governance";
 import MicroLoans from "./pages/MicroLoans";
+import AICommandCenter from "./pages/AICommandCenter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/ai-command" element={<AICommandCenter />} />
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/accounts/:id" element={<AccountDetail />} />
             <Route path="/portfolio" element={<Portfolio />} />
