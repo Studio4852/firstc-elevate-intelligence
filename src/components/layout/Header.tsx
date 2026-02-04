@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useRole, UserRole } from "@/context/RoleContext";
 
 interface HeaderProps {
   title: string;
@@ -14,6 +15,8 @@ interface HeaderProps {
 }
 
 export function Header({ title, subtitle }: HeaderProps) {
+  const { role, setRole } = useRole();
+
   return (
     <header className="flex items-center justify-between mb-8">
       <div>
@@ -51,14 +54,14 @@ export function Header({ title, subtitle }: HeaderProps) {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="gap-2 min-w-[120px] justify-between">
-              MANAGER
+              {role}
               <ChevronDown className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>MANAGER</DropdownMenuItem>
-            <DropdownMenuItem>AGENT</DropdownMenuItem>
-            <DropdownMenuItem>ANALYST</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setRole("MANAGER")}>MANAGER</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setRole("AGENT")}>AGENT</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setRole("ANALYST")}>ANALYST</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
