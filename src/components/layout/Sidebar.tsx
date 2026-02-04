@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { 
   LayoutDashboard, 
   Building2, 
@@ -9,11 +9,14 @@ import {
   ChevronRight,
   Sparkles,
   Wallet,
-  Zap
+  Zap,
+  LogOut
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useRole } from "@/context/RoleContext";
+import { useAuth } from "@/context/AuthContext";
+import { Button } from "@/components/ui/button";
 
 const allNavigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard, roles: ["MANAGER", "AGENT", "ANALYST"] },
@@ -27,9 +30,16 @@ const allNavigation = [
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { role } = useRole();
+  const { logout, username } = useAuth();
 
   const navigation = allNavigation.filter(item => item.roles.includes(role));
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <aside 
@@ -85,18 +95,30 @@ export function Sidebar() {
           <div className="relative">
             <Avatar className="w-10 h-10 border-2 border-sidebar-primary/30">
               <AvatarFallback className="bg-sidebar-accent text-sidebar-foreground font-semibold">
-                JD
+                {username ? username.slice(0, 2).toUpperCase() : "JD"}
               </AvatarFallback>
             </Avatar>
             <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-success rounded-full border-2 border-sidebar" />
           </div>
           {!collapsed && (
             <div className="animate-fade-in flex-1 min-w-0">
-              <p className="text-sm font-medium text-sidebar-foreground truncate">John Doe</p>
+              <p className="text-sm font-medium text-sidebar-foreground truncate">{username || "User"}</p>
               <p className="text-xs text-sidebar-primary font-medium">{role} MODE</p>
             </div>
           )}
         </div>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={handleLogout}
+          className={cn(
+            "mt-3 w-full text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10",
+            collapsed && "p-2"
+          )}
+        >
+          <LogOut className="w-4 h-4" />
+          {!collapsed && <span className="ml-2">Logout</span>}
+        </Button>
       </div>
 
       {/* Collapse Toggle */}
