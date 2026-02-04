@@ -44,9 +44,9 @@ export function Sidebar() {
           <Sparkles className="w-5 h-5 text-primary-foreground" />
         </div>
         {!collapsed && (
-          <div className="animate-fade-in">
-            <h1 className="font-display font-bold text-lg text-sidebar-foreground">INTELLI</h1>
-            <p className="text-xs text-sidebar-primary font-medium tracking-wide">SME PLATFORM</p>
+        <div className="animate-fade-in">
+            <h1 className="font-display font-bold text-lg text-sidebar-foreground">COLLECTION</h1>
+            <p className="text-xs text-sidebar-primary font-medium tracking-wide">INTELLIGENCE</p>
           </div>
         )}
       </div>
